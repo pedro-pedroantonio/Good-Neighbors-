@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply antialiased;
+  }
+
+  /* Modern typography */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  /* Smooth scroll */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Modern links */
+  a {
+    @apply transition-colors duration-300;
+  }
+
+  /* Glassmorphism effect */
+  .glass {
+    @apply rounded-xl bg-white/10 backdrop-blur-xl border border-white/20;
+  }
+
+  /* Modern button base */
+  .btn-modern {
+    @apply inline-flex items-center gap-2 rounded-lg font-medium transition-all duration-200;
+  }
+}
+
+/* Smooth animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.5s ease-out;
+}
+
+/* Prevent FOUC */
+* {
+  @apply transition-colors duration-75 [transition-property:background-color,border-color,color,fill,stroke];
+}
+
+/* Buttons */
+button {
+  @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+}
+
+/* Form Elements */
+input,
+textarea,
+select {
+  @apply focus:outline-none focus:ring-2 focus:ring-blue-500;
+}
